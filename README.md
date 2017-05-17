@@ -125,6 +125,6 @@ loader可以将文件从不同的语言转换为javascript,或将内联图像转
 插件目的在于解决loader无法实现的其他事。
 
 # 用法
-必须在webpack中配置，向plugins属性传入new实例
+必须在webpack中配置，向plugins属性传入new实例.
 
 
