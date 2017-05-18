@@ -127,4 +127,123 @@ loader可以将文件从不同的语言转换为javascript,或将内联图像转
 # 用法
 必须在webpack中配置，向plugins属性传入new实例.
 
+=====================================
 
+# 关于module.rules
+
+module.rules:[
+    {
+       test:/\.jsx$/,
+       include:[
+        path.resolve(__dirname,'app')
+       ],
+       exclude:[
+            path.resolve(__dirname,'app/demo-files')
+       ],
+       loader:'babel-loader'
+    }
+]
+
+ 这里面说匹配条件，每个选项都接受一个正则表达式或字符串来匹配文件类型
+ test和include具有相同的作用，都是必须匹配选项
+ exclude是必不匹配的选项，优先级高于test和include
+
+ loader说解析时需要的Loader插件，为了更清晰，'-loader'后缀在webpack2
+ 中不再说可选的，而是要必须加上了。
+
+ ## 最佳实践
+ 只在test 和文件名匹配中使用正则表达式
+ 在include和exclude中使用绝对路径(path.resolve()方法）
+ 尽量避免exclude,倾向于使用include.
+
+
+## path.resolve()
+整个配置中我们使用Node.js的path模块，并在他前面加上__dirname这个全局
+变量，可以防止不同操作系统之间的文件路径问题，并且可以使相对路径按照预期
+工作。
+
+## alias 模块别名列表
+## devtool
+    通过在浏览器调试工具中添加元信息增强调试，
+
+
+    ====================================
+
+# 入口和上下文 entry and Context
+
+    entry对象 用于webpack查找文件，启动并构建bundle的重要配置，告诉webpack
+应该从哪里去查找，其上下文是文件所处的目录的绝对路径的字符串。
+    他是应用程序的起点入口，从这个起点开始，应用程序启动执行，如果传递一个数组，
+那么数组的每一项都会执行。
+    如果传入一个字符串或者一个字符串数组，chunk会被命名为main,如果传入一个对象
+则每个键key，会是chunk的名称，该值描述了chunk的入口起点
+
+    context:
+    基础目录，绝对路径，用于从配置中解析入口起点entry point和loader
+    默认使用context的目录，但是推荐在配置中传递一个值。
+
+# 输出 output
+output位于对象最顶级键key,包括一组选项，指示webpack如何输出，以及在哪里输出你的
+bundle,asset和其他你所打包或使用webpack载入的任何内容
+
+    ## output.filename
+
+    此选项决定了每个输出bundle的名称，这些bundle将写入到output.path选项指定的
+    目录下。
+    对于单个入口起点(entry为一个字符串)，filename将会说一个静态名称。
+
+    然而，当有多个入口起点时(entry为对象或字符串），代码拆分或者各种插件plugin创建
+    多个bundle,应该使用以下一种替换方式，来赋予每个bundle唯一的名称:
+
+    使用入口名称：
+        filename:'[name].bundle.js'
+    使用内部chunk:
+        filename:'[id].bundle.js'
+    使用每次构建中，唯一的hash：
+        filename:'[name].[hash].bundle.js'
+
+    ## output.path
+
+    path对应一个绝对路径
+
+    ## output.publicPath
+
+    对于按需加载或加载外部资源来说，这是一个重要的选项，如果指定了一个错误的值，则在这些
+    资源时会收到404错误。
+
+# 解析 resolve
+    这个选项能设置模块如何被解析。webpack会提供默认值，
+
+    ## alias
+    创建import或require时使用的别名，来确保模块的引入变得更简单。
+
+        resolve:{
+            alias:{
+                aaa:path.resolve(__dirname,'src/aaa/'),
+                bbb:path.resolve(__dirname,'src/bbb/')
+            }
+        }
+
+    然后，我们在导入中使用更简洁的方式：
+
+        import $ from '../../src/aaa/jquery'
+    变成这样：
+        import $ from 'aaa/jquery'
+
+    也可以在键值末尾添加$,表示精准的匹配
+
+         alias:{
+            aaa&:path.resolve(__dirname,'src/aaa/')
+         }
+
+    ## extensions
+
+    自动解析确定的扩展，默认值为：
+
+        extensions:['.js','.json']
+
+    设置之后，可以让用户在引入模块时不带扩展后缀，
+
+
+# 题外话pinchzoom.js和touch.js
+ pinkzoom.js可以双指缩放元素，touch.js可以使用手势触发一些灵活的效果

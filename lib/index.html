@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scale=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Touch App</title>
+    <style>
+        .t-block{
+            width:200px;
+            height:200px;
+            margin:50px;
+            background:#999;
+            -webkit-user-drag:none;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div id="target" class="t-block">Touch</div>
+</div>
+<script src="jquery-1.7.2.min.js"></script>
+<script src="pinchzoom.min.js"></script>
+<script>
+    $(function(){
+        $('#target').each(function(){
+            new RTP.PinchZoom($(this),{});
+        })
+    })
+</script>
+</body>
+</html>
