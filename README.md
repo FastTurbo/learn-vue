@@ -248,10 +248,11 @@ bundle,asset和其他你所打包或使用webpack载入的任何内容
     考虑到用cli这种方式来运行webpack不是特别方便，可以设置快捷方式：
     在package.json中scripts属性下进行配置：
     //package.json
-
-        "scripts":{
-            "dev":"webpack --config webpack.config.js""
-        }
+        <pre><code>
+                "scripts":{
+                    "dev":"webpack --config webpack.config.js""
+                }
+        </code></pre>
 
     这时我们只需要在命令行中输入npm run dev就可以运行webpack了。
 
