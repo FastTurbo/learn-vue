@@ -244,6 +244,23 @@ bundle,asset和其他你所打包或使用webpack载入的任何内容
 
     设置之后，可以让用户在引入模块时不带扩展后缀，
 
+# 配合npm 使用
+    考虑到用cli这种方式来运行webpack不是特别方便，可以设置快捷方式：
+    在package.json中scripts属性下进行配置：
+    //package.json
+
+        "scripts":{
+            "dev":"webpack --config webpack.config.js""
+        }
+
+    这时我们只需要在命令行中输入npm run dev就可以运行webpack了。
+
+# babel的使用
+    在编译中需要babal,我们需要安装babel-core,babel-loader，
+    切记：一定要安装babel预设，如：babel-preset-es2015,babel-preset-stage-0等
+
+
+==============================================
 
 # 题外话pinchzoom.js和touch.js
  pinkzoom.js可以双指缩放元素，touch.js可以使用手势触发一些灵活的效果
