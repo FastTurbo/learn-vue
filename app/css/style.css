@@ -1,8 +1,17 @@
 html{
     font-size:10px !important;
 }
+p{
+    margin:0;
+    padding:0;
+}
+link{
+    display:block !important;
+}
 body{
-    background:#999;
+    padding:0;
+    margin:0;
+    background:#dedede;
     font-size:10px;
 }
 
@@ -10,6 +19,5 @@ body{
     height:6rem;
     line-height:6rem;
     font-size:3rem;
-    text-align:center;
 
 }

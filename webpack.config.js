@@ -21,13 +21,21 @@ module.exports = {
         use: 'babel-loader'
       },
       {
-        test:/\.css$/,
-        use:['style-loader','css-loader']
+        test: /\.vue$/,
+        use: ['babel-loader','vue-loader']
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test:/\.(jpg|png|ico)/,
+        use:['url-loader']
       }
     ]
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, '/'),
     compress: true,
     port: 9000
   },
