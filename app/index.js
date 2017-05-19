@@ -1,15 +1,11 @@
 /**
  * Created by 502742374 on 2017/5/18.
  */
-import _ from 'lodash'
+import Vue from 'vue/dist/vue'
 
-
- let component =  () => {
-    let el = document.createElement('div')
-
-    el.innerHTML = _.join(['hello','webpack'],'  ')
-
-    return el
-}
-
-document.body.appendChild(component())
+new Vue({
+  el:'#app',
+  data:{
+    message:'Hello world,I\'m using vue to coding my project.'
+  }
+})
