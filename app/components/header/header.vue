@@ -9,7 +9,7 @@
     export default {
       data () {
         return {
-          title:'Tianpf\'s Vue Project',
+          title:'Tianpf\'s Vue Station',
           time:'0'
         }
       },
@@ -52,7 +52,6 @@
         line-height:6rem;
         font-size:3rem;
         color:#fff;
-        font-weight:bolder;
     }
     .header .time{
         display:inline-block;
