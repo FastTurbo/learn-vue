@@ -2,13 +2,24 @@
  * Created by 502742374 on 2017/5/18.
  */
 import Vue from 'vue/dist/vue'
+import VueRouter from 'vue-router/dist/vue-router.common'
 import App from './components/app.vue'
+import Index from './components/index/index.vue'
+import Family from  './components/family/family.vue'
+import Education from './components/education/education.vue'
 import style from './css/style.css'
+Vue.use(VueRouter)
+
+
+const routes = [
+  {path:'/index',component:Index},
+  {path:'/family',component:Family},
+  {path:'/education',component:Education}
+]
+
+const router = new VueRouter({routes})
 
 new Vue({
-  el:'#app',
-  data:{
-    message:'Hello world,I\'m using vue to coding my project.'
-  },
-  components:{ App }
-})
+  router,
+  render:h => h(App)
+}).$mount('#app')
