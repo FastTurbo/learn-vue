@@ -1,7 +1,6 @@
 <template>
     <div class="header">
-        <p class="title">{{ title }}</p>
-        <p class="time">{{ time }}</p>
+        <p class="title">{{ title }}</p><p class="time">{{ time }}</p>
     </div>
 </template>
 
@@ -40,13 +39,18 @@
     .header{
         width:100%;
         height:6rem;
-        background:midnightblue;
+        margin-bottom:1rem;
+    }
+
+    .header p{
+        display:inline-block;
+        box-sizing:border-box;
+        vertical-align: top;
     }
     .header .title{
         background:url(../../img/logo.png) 2rem 0.4rem no-repeat;
         background-size:5rem 5rem;
-        display:inline-block;
-        width:52%;
+        width:60%;
         height:6rem;
         padding-left:8rem;
         line-height:6rem;
@@ -54,7 +58,8 @@
         color:#fff;
     }
     .header .time{
-        display:inline-block;
+        background:#333;
+        opacity:0.6;
         width:40%;
         height:6rem;
         padding-right:2rem;

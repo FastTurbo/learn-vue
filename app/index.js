@@ -14,7 +14,7 @@ Vue.use(VueRouter)
 const routes = [
   {path:'/index',component:Index},
   {path:'/family',component:Family},
-  {path:'/education',component:Education}
+  {path:'/education/:user',component:Education}
 ]
 
 const router = new VueRouter({routes})

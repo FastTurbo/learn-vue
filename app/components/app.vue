@@ -5,7 +5,7 @@
         <transition name="slide-fade">
             <router-view></router-view>
         </transition>
-
+        <Footer></Footer>
     </div>
 
 
@@ -14,7 +14,7 @@
 <script>
 import Header from './header/header.vue'
 import Nav from './nav/nav.vue'
-
+import Footer from './footer/footer.vue'
 
 export default {
   data () {
@@ -24,7 +24,8 @@ export default {
   },
   components:{
     'Header':Header,
-    'Nav':Nav
+    'Nav':Nav,
+    'Footer':Footer
   }
 }
 </script>
