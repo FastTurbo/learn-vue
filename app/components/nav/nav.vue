@@ -164,6 +164,7 @@
     .sub-nav{
         display:inline-block;
         width:70%;
+        height:100%;
         right:-70%;
         position:relative;
         vertical-align: top;
