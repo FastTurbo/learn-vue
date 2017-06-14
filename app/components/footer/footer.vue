@@ -48,7 +48,7 @@
 
     .footer p{
         text-align:center;
-        font-size:1.6rem;
+        font-size:1.2rem;
         color:#fff;
         height:3rem;
         line-height:3rem;
