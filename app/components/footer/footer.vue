@@ -13,6 +13,7 @@
                     </div>
                 </a>
             </span>
+            <span class="count">网站统计:   {{ count }} 次访问</span>
         </p>
     </div>
 </template>
@@ -25,6 +26,11 @@
       data () {
         return {
           isShow:false
+        }
+      },
+      computed:{
+        count () {
+          return this.$store.state.count
         }
       },
       methods:{
@@ -98,5 +104,10 @@
         width:10rem;
         height:10rem;
         margin:0 auto;
+    }
+
+    .count{
+        margin-left:15rem;
+        text-align:right;
     }
 </style>

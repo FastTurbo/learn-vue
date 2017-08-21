@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <p class="title">{{ title }}</p><p class="time">{{ time }}</p>
+        <p class="title">{{ title }}</p><p class="time"> {{ time }}</p>
     </div>
 </template>
 
@@ -17,6 +17,7 @@
           return num > 9 ? num : '0' + num
         }
       },
+
       created () {
         setInterval(() => {
           const date = new Date()

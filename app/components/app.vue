@@ -19,9 +19,10 @@ import Footer from './footer/footer.vue'
 export default {
   data () {
     return {
-      message:'Hello Vue.js!'
+      message:'Hello Vue.js! '
     }
   },
+
   components:{
     'Header':Header,
     'Nav':Nav,
